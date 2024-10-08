@@ -43,19 +43,19 @@ export default function Home() {
 
   return (
     <div>
-      <div id="hero" className="w-full flex items-center justify-between">
+      <div id="hero" className="w-full flex items-center justify-between md:flex-row flex-col">
         <AnimatePresence mode="sync">
           <motion.div
-            id="hero-text" className="px-6 flex flex-col gap-4"
+            id="hero-text" className="px-6 flex flex-col gap-4 md:mt-auto mt-28"
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5 }}
           >
             <h1>
-              <span className="text-8xl font-logo dark:text-amber-100 text-amber-900">Bienvenue sur</span>
+              <span className="md:text-8xl text-6xl font-logo dark:text-amber-100 text-amber-900">Bienvenue sur</span>
               <br />
-              <span className="text-8xl font-logo dark:text-amber-100 text-amber-900">Folklore</span>
+              <span className="md:text-8xl text-6xl font-logo dark:text-amber-100 text-amber-900">Folklore</span>
             </h1>
             <p className="text-2xl font-logo font-thin">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidem.
@@ -65,7 +65,7 @@ export default function Home() {
         <AnimatePresence mode="sync">
           <motion.div
             id="hero-image"
-            className=""
+            className="md:mt-auto mt-28"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
@@ -74,7 +74,7 @@ export default function Home() {
             <img
               src="assets/images/hamza-img.jpg"
               alt="hero"
-              className="h-[980px]"
+              className="w-full h-full object-cover"
             />
             <div className="w-full flex items-center -mt-28">
               <div className="w-5/6 bg-amber-800 h-28 flex justify-start items-center px-5">
@@ -89,18 +89,20 @@ export default function Home() {
                     form?.scrollIntoView({ behavior: "smooth" });
                   }
                 }>
-                  <svg width="60px" height="60px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#fff" stroke="#fff" strokeWidth="0.00001">
-                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
-                    <g id="SVGRepo_iconCarrier"><g> <path className="st0" d="M81.8,10.6C67.4,17.8,55,31.1,43.1,41.7C35,49,27.1,56.6,19.3,64.2c2.8-12.4,3.9-26.1-1.1-36.3 c-2.5-5-8.9-1.9-9.4,2.6c-0.8,7.6,0.5,15.5,0,23.2C8.3,61.9,7,70.1,4.8,78c-1.1,4,2.6,7.2,6.4,6.4c9.1-1.9,18.2-2.8,27.5-2.8 c8.5,0.1,17.1,2,25.5,1.3c2.3-0.2,3.4-3.2,1.2-4.5c-11.5-7-27.5-7.6-42-6.2c8.7-7.3,17.5-14.6,26.1-21.9C61.8,39.9,77,30.2,87,17.4 C90,13.7,86.4,8.3,81.8,10.6z" /> </g> </g>
-                  </svg>
+                  <div className="w-12">
+                    <svg width="50px" height="50px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#fff" stroke="#fff" strokeWidth="0.00001">
+                      <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+                      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+                      <g id="SVGRepo_iconCarrier"><g> <path className="st0" d="M81.8,10.6C67.4,17.8,55,31.1,43.1,41.7C35,49,27.1,56.6,19.3,64.2c2.8-12.4,3.9-26.1-1.1-36.3 c-2.5-5-8.9-1.9-9.4,2.6c-0.8,7.6,0.5,15.5,0,23.2C8.3,61.9,7,70.1,4.8,78c-1.1,4,2.6,7.2,6.4,6.4c9.1-1.9,18.2-2.8,27.5-2.8 c8.5,0.1,17.1,2,25.5,1.3c2.3-0.2,3.4-3.2,1.2-4.5c-11.5-7-27.5-7.6-42-6.2c8.7-7.3,17.5-14.6,26.1-21.9C61.8,39.9,77,30.2,87,17.4 C90,13.7,86.4,8.3,81.8,10.6z" /> </g> </g>
+                    </svg>
+                  </div>
                 </button>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
-      <div id="form" className="w-full flex justify-center items-center">
+      <div id="form" className="md:w-full w-2/3 m-auto flex justify-center items-center">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
           width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
           preserveAspectRatio="xMidYMid meet">
@@ -164,30 +166,30 @@ export default function Home() {
         <div>
           <h2 className="text-center font-bold font-logo text-4xl dark:text-amber-100 text-amber-900 mb-6">Notre Service</h2>
         </div>
-        <div className="flex justify-center items-center w-5/6 mt-12">
+        <div className="flex justify-center items-center md:w-5/6 w-4/6 mt-12 md:flex-row flex-col">
           <div className="flex flex-col w-full justify-center items-center">
             <Carousel className="w-full max-w-xl margin-auto shadow-lg">
               <CarouselContent>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid1.mp4" controls autoPlay />
+                  <video src="assets/videos/vid1.mp4" controls autoPlay muted />
                 </CarouselItem>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid2.mp4" controls autoPlay />
+                  <video src="assets/videos/vid2.mp4" controls autoPlay muted />
                 </CarouselItem>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid4.mp4" controls autoPlay />
+                  <video src="assets/videos/vid4.mp4" controls autoPlay muted />
                 </CarouselItem>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid5.mp4" controls autoPlay />
+                  <video src="assets/videos/vid5.mp4" controls autoPlay muted />
                 </CarouselItem>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid6.mp4" controls autoPlay />
+                  <video src="assets/videos/vid6.mp4" controls autoPlay muted />
                 </CarouselItem>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid7.mp4" controls autoPlay />
+                  <video src="assets/videos/vid7.mp4" controls autoPlay muted />
                 </CarouselItem>
                 <CarouselItem className="max-w-[300px]">
-                  <video src="assets/videos/vid8.mp4" controls autoPlay />
+                  <video src="assets/videos/vid8.mp4" controls autoPlay muted />
                 </CarouselItem>
               </CarouselContent>
               <CarouselPrevious />
@@ -198,14 +200,14 @@ export default function Home() {
             <FormikProvider value={formik}>
               <Form>
                 <div className="flex flex-col items-center justify-center gap-4">
-                  <div className="flex flex-col justify-start items-start my-6 w-2/3">
-                    <h3 className="font-logo text-4xl dark:text-amber-100 text-amber-900">Description</h3>
-                    <p className="font-logo text-lg dark:text-amber-100 text-amber-900">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quidem.</p>
+                  <div className="flex flex-col justify-start items-start my-6 md:w-2/3 w-full">
+                    <h3 className="font-logo md:text-4xl text-2xl dark:text-amber-100 text-amber-900">Description</h3>
+                    <p className="font-logo md:text-lg text-md dark:text-amber-100 text-amber-900">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quidem.</p>
                     <span className="text-6xl font-logo">
                       50€
                     </span>
                   </div>
-                  <div className="flex flex-col w-2/3">
+                  <div className="flex flex-col md:w-2/3 w-full">
                     <label htmlFor="email" className="font-logo text-xl dark:text-amber-100 text-amber-950">Email :</label>
                     <span className="italic font-logo mb-2 text-sm text-white">
                       L'email où vous recevrez votre vidéo
@@ -219,7 +221,7 @@ export default function Home() {
                       value={formik.values.email}
                     />
                   </div>
-                  <div className="flex flex-col w-2/3">
+                  <div className="flex flex-col md:w-2/3 w-full">
                     <label htmlFor="message" className="font-logo text-xl dark:text-amber-100 text-amber-950">Message :</label>
                     <span className="italic font-logo mb-2 text-sm text-white">
                       Un message avec des précision sur la vidéo que vous souhaitez
@@ -239,7 +241,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center items-center">
+      <div className="md:w-full w-2/3 m-auto flex justify-center items-center">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
           width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
           preserveAspectRatio="xMidYMid meet">
@@ -299,18 +301,18 @@ export default function Home() {
           </g>
         </svg>
       </div>
-      <div className="flex justify-center w-4/5 m-auto">
-        <div className="w-1/2 px-10">
+      <div className="flex justify-center md:w-4/5 w-full m-auto md:flex-row flex-col md:gap-0 gap-6">
+        <div className="md:w-1/2 w-full px-10">
           <h2 className="font-bold font-logo text-4xl dark:text-amber-100 text-amber-900 mb-6">à propos de nous</h2>
           <p className="text-xl leading-loose">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidem
           </p>
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2 w-full">
           <img src="assets/images/hamza-img.jpg" alt="" className="" />
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center md:w-full w-2/3 m-auto">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
           width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
           preserveAspectRatio="xMidYMid meet">
@@ -370,7 +372,7 @@ export default function Home() {
           </g>
         </svg>
       </div>
-      <div className="flex m-auto justify-evenly items-center gap-4 w-full dark:bg-amber-100 bg-amber-900 py-20">
+      <div className="flex m-auto justify-evenly items-center gap-4 w-full dark:bg-amber-100 bg-amber-900 py-20 md:flex-row flex-col">
         <div className="w-fit flex px-10">
           <div>
             <h2 className="font-bold font-logo text-4xl dark:text-amber-900 text-amber-100 mb-6">Besoin d'aide</h2>
@@ -386,11 +388,11 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <svg xmlns="http://www.w3.org/2000/svg" className="text-amber-900" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
               <p className="text-xl dark:text-amber-900 text-amber-100">@afrah.berrada</p>
-            </div>
+            </div> muted
           </div>
         </div>
         <div className="w-fit flex justify-center">
-          <FontAwesomeIcon icon={faHeadset} className="text-[25rem] text-amber-900" />
+          <FontAwesomeIcon icon={faHeadset} className="md:text-[25rem] text-6xl text-amber-900" />
         </div>
       </div>
 
