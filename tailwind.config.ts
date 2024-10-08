@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        logo: ["var(--logo)", "var(--logo)"]
+        logo: ["var(--logo)", "var(--logo)"],
+        receipt: ["var(--receipt)", "var(--receipt)"]
       },
       colors: {
         background: "var(--background)",

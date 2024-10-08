@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +8,7 @@
   --background: #fff0db;
   --foreground: #5C4033;
   --logo: 'Playfair Display', serif;
+  --receipt: 'Inconsolata', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
