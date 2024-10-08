@@ -24,8 +24,8 @@ export default function receipt() {
     }, [id]);
 
     return (
-        <div className="flex h-full min-h-screen">
-            <div className="m-auto flex flex-col font-receipt bg-white justify-center items-center dark:text-amber-900 text-amber-100 py-10 px-20 gap-4 max-w-[400px]">
+        <div className="flex h-full min-h-screen relative">
+            <div className="m-auto flex flex-col font-receipt bg-amber-900 dark:bg-white justify-center items-center dark:text-amber-900 text-amber-100 py-10 px-20 gap-4 max-w-[400px]">
                 <div className="flex flex-col justify-center items-center gap-10">
                     <h1 className="text-6xl font-logo">Folklore</h1>
                     <FontAwesomeIcon icon={faReceipt} className="text-6xl" />
@@ -53,7 +53,7 @@ export default function receipt() {
                                     : payment?.message
                             }
                         </p>
-                        <span className="w-full border-b border-dotted border-amber-900 flex-grow mx-4 my-2 self-end">
+                        <span className="w-full border-b border-dotted dark:border-amber-900 border-amber-100 flex-grow mx-4 my-2 self-end">
                         </span>
                         <p className="self-end">
                             {payment?.amount}€
@@ -65,12 +65,21 @@ export default function receipt() {
                     <FontAwesomeIcon icon={faBarcode} className="text-6xl" />
                 </div>
                 <div className="w-full flex justify-center">
-                    <button className="dark:text-amber-900 text-amber-100 dark:bg-amber-100 bg-amber-900 hover:text-black hover:bg-amber-300 transition-all py-4 px-6 rounded shadow-md" onClick={() => {
+                    <button className="text-amber-900 dark:text-amber-100 bg-amber-100 dark:bg-amber-900 hover:text-black hover:bg-amber-300 transition-all py-4 px-6 rounded shadow-md" onClick={() => {
                         router.push("/")
                     }}>
                         <FontAwesomeIcon icon={faHome} className="mr-4" />
                         Retour à l'accueil
                     </button>
+                </div>
+                <div
+                    className="bg-amber-900 dark:bg-amber-100 absolute -z-10 md:bottom-28 bottom-2 w-full max-w-[400px] h-1/4"
+                    style={
+                        {
+                            clipPath: "polygon(0% 1%, 100% 0, 100% 63%, 88% 99%, 85% 65%, 81% 84%, 76% 65%, 74% 79%, 68% 66%, 61% 85%, 55% 65%, 50% 93%, 41% 66%, 36% 80%, 29% 64%, 26% 97%, 21% 66%, 14% 92%, 9% 64%, 4% 96%, 0% 63%)"
+                        }
+                    }>
+
                 </div>
             </div>
         </div>

@@ -31,10 +31,10 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
+        <footer className="w-full flex justify-center items-center dark:bg-amber-800 dark:text-amber-100 bg-amber-100 text-amber-900 py-4">
+          <p className="font-logo text-xl">© 2024 Folklore</p>
+        </footer>
       </body>
-      <footer className="w-full flex justify-center items-center dark:bg-amber-800 dark:text-amber-100 bg-amber-100 text-amber-900 py-4">
-        <p className="font-logo text-xl">© 2024 Folklore</p>
-      </footer>
     </html>
   );
 }

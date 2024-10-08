@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { faEnvelope, faHeadset, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 interface formProps {
   email: string;
@@ -19,6 +20,8 @@ interface formProps {
 }
 
 export default function Home() {
+
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: {
@@ -36,7 +39,7 @@ export default function Home() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          router.push(data.paymentLink)
         })
     }
   })
@@ -46,7 +49,7 @@ export default function Home() {
       <div id="hero" className="w-full flex items-center justify-between md:flex-row flex-col">
         <AnimatePresence mode="sync">
           <motion.div
-            id="hero-text" className="px-6 flex flex-col gap-4 md:mt-auto mt-28"
+            id="hero-text" className="px-6 flex flex-col gap-4 md:mt-1 mt-28"
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
@@ -90,7 +93,7 @@ export default function Home() {
                   }
                 }>
                   <div className="w-12">
-                    <svg width="50px" height="50px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#fff" stroke="#fff" strokeWidth="0.00001">
+                    <svg width="50px" height="50px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#d9b99b" stroke="#d9b99b" strokeWidth="0.00001">
                       <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                       <g id="SVGRepo_iconCarrier"><g> <path className="st0" d="M81.8,10.6C67.4,17.8,55,31.1,43.1,41.7C35,49,27.1,56.6,19.3,64.2c2.8-12.4,3.9-26.1-1.1-36.3 c-2.5-5-8.9-1.9-9.4,2.6c-0.8,7.6,0.5,15.5,0,23.2C8.3,61.9,7,70.1,4.8,78c-1.1,4,2.6,7.2,6.4,6.4c9.1-1.9,18.2-2.8,27.5-2.8 c8.5,0.1,17.1,2,25.5,1.3c2.3-0.2,3.4-3.2,1.2-4.5c-11.5-7-27.5-7.6-42-6.2c8.7-7.3,17.5-14.6,26.1-21.9C61.8,39.9,77,30.2,87,17.4 C90,13.7,86.4,8.3,81.8,10.6z" /> </g> </g>
@@ -102,15 +105,15 @@ export default function Home() {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div id="form" className="md:w-full w-2/3 m-auto flex justify-center items-center">
-        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+      <div id="form" className="md:w-full w-2/3 m-auto flex justify-center items-center ">
+        <svg className="" version="1.0" xmlns="http://www.w3.org/2000/svg"
           width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
           preserveAspectRatio="xMidYMid meet">
           <metadata>
             Created by potrace 1.15, written by Peter Selinger 2001-2017
           </metadata>
           <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
-            fill="#fff" stroke="none">
+            fill="#d9b99b" stroke="none">
             <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
 -19 53 56 c129 139 124 364 -11 456 -39 28 -53 27 -91 0z m90 -19 c14 -11 38
 -42 54 -67 24 -41 27 -57 27 -132 0 -72 -4 -93 -27 -140 -15 -30 -43 -71 -63
@@ -209,27 +212,27 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col md:w-2/3 w-full">
                     <label htmlFor="email" className="font-logo text-xl dark:text-amber-100 text-amber-950">Email :</label>
-                    <span className="italic font-logo mb-2 text-sm text-white">
+                    <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
                       L'email où vous recevrez votre vidéo
                     </span>
                     <input
                       type="email"
                       name="email"
                       id="email"
-                      className="border-2 border-amber-700 rounded-md p-2 dark:text-amber-100 text-amber-900 bg-black bg-opacity-25"
+                      className="border-2 border-amber-700 rounded-md p-2 dark:text-amber-100 text-amber-900 bg-slate-100 dark:bg-black bg-opacity-25"
                       onChange={formik.handleChange}
                       value={formik.values.email}
                     />
                   </div>
                   <div className="flex flex-col md:w-2/3 w-full">
                     <label htmlFor="message" className="font-logo text-xl dark:text-amber-100 text-amber-950">Message :</label>
-                    <span className="italic font-logo mb-2 text-sm text-white">
+                    <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
                       Un message avec des précision sur la vidéo que vous souhaitez
                     </span>
                     <textarea
                       name="message"
                       id="message"
-                      className="border-2 border-amber-700 rounded-md p-2 dark:text-amber-100 text-amber-900 bg-black bg-opacity-25 w-full"
+                      className="border-2 border-amber-700 rounded-md p-2 dark:text-amber-100 text-amber-900 bg-slate-100 dark:bg-black bg-opacity-25 w-full"
                       onChange={formik.handleChange}
                       value={formik.values.message}
                     />
@@ -249,7 +252,7 @@ export default function Home() {
             Created by potrace 1.15, written by Peter Selinger 2001-2017
           </metadata>
           <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
-            fill="#fff" stroke="none">
+            fill="#d9b99b" stroke="none">
             <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
 -19 53 56 c129 139 124 364 -11 456 -39 28 -53 27 -91 0z m90 -19 c14 -11 38
 -42 54 -67 24 -41 27 -57 27 -132 0 -72 -4 -93 -27 -140 -15 -30 -43 -71 -63
@@ -320,7 +323,7 @@ export default function Home() {
             Created by potrace 1.15, written by Peter Selinger 2001-2017
           </metadata>
           <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
-            fill="#fff" stroke="none">
+            fill="#d9b99b" stroke="none">
             <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
 -19 53 56 c129 139 124 364 -11 456 -39 28 -53 27 -91 0z m90 -19 c14 -11 38
 -42 54 -67 24 -41 27 -57 27 -132 0 -72 -4 -93 -27 -140 -15 -30 -43 -71 -63
@@ -378,21 +381,21 @@ export default function Home() {
             <h2 className="font-bold font-logo text-4xl dark:text-amber-900 text-amber-100 mb-6">Besoin d'aide</h2>
             <h3 className="font-logo text-2xl dark:text-amber-900 text-amber-100 underline mb-6 ">Contact</h3>
             <div className="flex items-center gap-4">
-              <FontAwesomeIcon icon={faEnvelope} className=" text-amber-900" />
+              <FontAwesomeIcon icon={faEnvelope} className=" dark:text-amber-900 text-amber-100" />
               <p className="text-xl dark:text-amber-900 text-amber-100">folklore.groupe@gmail.com</p>
             </div>
             <div className="flex items-center gap-4">
-              <FontAwesomeIcon icon={faPhone} className="text-amber-900" />
+              <FontAwesomeIcon icon={faPhone} className="dark:text-amber-900 text-amber-100" />
               <p className="text-xl dark:text-amber-900 text-amber-100">+33 7 58 88 93 18</p>
             </div>
             <div className="flex items-center gap-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="text-amber-900" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" className="dark:text-amber-900 text-amber-100" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
               <p className="text-xl dark:text-amber-900 text-amber-100">@afrah.berrada</p>
-            </div> muted
+            </div>
           </div>
         </div>
         <div className="w-fit flex justify-center">
-          <FontAwesomeIcon icon={faHeadset} className="md:text-[25rem] text-6xl text-amber-900" />
+          <FontAwesomeIcon icon={faHeadset} className="md:text-[25rem] text-6xl dark:text-amber-900 text-amber-100" />
         </div>
       </div>
 
