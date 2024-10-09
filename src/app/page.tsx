@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Form, FormikProvider, useFormik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import * as yup from "yup";
 import {
   Carousel,
   CarouselContent,
@@ -23,13 +24,22 @@ export default function Home() {
 
   const router = useRouter();
 
+  const validationSchema = yup.object({
+    email: yup.string().email("Format d'email non valide").required("Email requis"),
+    message: yup.string().required("Le message est requis pour savoir votre besoin"),
+  });
+
   const formik = useFormik({
     initialValues: {
       email: "",
       message: "",
       amount: 50
     },
+    validationSchema: validationSchema,
     onSubmit: async (values: formProps) => {
+      if (formik.errors.email || formik.errors.message) {
+        return;
+      }
       fetch(process.env.NEXT_PUBLIC_API_URL + "/payment", {
         method: "POST",
         headers: {
@@ -212,7 +222,7 @@ export default function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="email" className="font-logo text-xl dark:text-amber-100 text-amber-950">Email :</label>
+                      <label htmlFor="email" className="font-logo text-xl dark:text-amber-100 text-amber-950">Email* :</label>
                       <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
                         L'email où vous recevrez votre vidéo
                       </span>
@@ -224,19 +234,25 @@ export default function Home() {
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
+                      <span className="dark:text-red-400 text-red-600">
+                        {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
+                      </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="message" className="font-logo text-xl text-amber-950">Message :</label>
+                      <label htmlFor="message" className="font-logo text-xl dark:text-amber-100 text-amber-950">Message* :</label>
                       <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
                         Un message avec des précision sur la vidéo que vous souhaitez
                       </span>
                       <textarea
                         name="message"
                         id="message"
-                        className="border border-amber-700 p-2 dark:text-amber-100 text-amber-900 bg-slate-100"
+                        className="border border-amber-700 p-2 text-amber-900 bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
+                      <span className="dark:text-red-400 text-red-600">
+                        {formik.touched.message && formik.errors.message ? formik.errors.message : ""}
+                      </span>
                     </div>
                     <button type="submit" className="bg-amber-800 text-white rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-amber-600 transition-all">Valider</button>
                   </div>
