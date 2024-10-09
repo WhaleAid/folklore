@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/carousel"
 import { faEnvelope, faHeadset, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Hourglass } from "react-loader-spinner";
 
 interface formProps {
   email: string;
@@ -23,7 +25,7 @@ interface formProps {
 export default function Home() {
 
   const router = useRouter();
-
+  const [loading, setLoading] = useState(false);
   const validationSchema = yup.object({
     email: yup.string().email("Format d'email non valide").required("Email requis"),
     message: yup.string().required("Le message est requis pour savoir votre besoin"),
@@ -37,7 +39,9 @@ export default function Home() {
     },
     validationSchema: validationSchema,
     onSubmit: async (values: formProps) => {
+      setLoading(true);
       if (formik.errors.email || formik.errors.message) {
+        setLoading(false);
         return;
       }
       fetch(process.env.NEXT_PUBLIC_API_URL + "/payment", {
@@ -49,6 +53,7 @@ export default function Home() {
       })
         .then((res) => res.json())
         .then((data) => {
+          setLoading(false);
           router.push(data.paymentLink)
         })
     }
@@ -254,7 +259,19 @@ export default function Home() {
                         {formik.touched.message && formik.errors.message ? formik.errors.message : ""}
                       </span>
                     </div>
-                    <button type="submit" className="bg-amber-800 text-white rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-amber-600 transition-all">Valider</button>
+                    <button type="submit" className="bg-amber-800 text-white rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-amber-600 transition-all" disabled={loading}>
+                      {
+                        loading ? <Hourglass
+                          visible={true}
+                          height="20"
+                          width="20"
+                          ariaLabel="hourglass-loading"
+                          wrapperStyle={{}}
+                          wrapperClass=""
+                          colors={['#fff0db', '#fef3c7']}
+                        /> : "Valider"
+                      }
+                    </button>
                   </div>
                 </Form>
               </FormikProvider>
@@ -265,9 +282,6 @@ export default function Home() {
           <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
             width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
-            <metadata>
-              Created by potrace 1.15, written by Peter Selinger 2001-2017
-            </metadata>
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
               fill="#d9b99b" stroke="none">
               <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
