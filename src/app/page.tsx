@@ -220,7 +220,7 @@ export default function Home() {
                         type="email"
                         name="email"
                         id="email"
-                        className="border border-amber-700 p-2 dark:text-amber-100 text-amber-900 bg-slate-100"
+                        className="border border-amber-700 p-2 text-amber-100 dark:text-amber-900 bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
@@ -233,7 +233,7 @@ export default function Home() {
                       <textarea
                         name="message"
                         id="message"
-                        className="border border-amber-700 p-2 dark:text-amber-100 text-amber-900 bg-slate-100"
+                        className="border border-amber-700 p-2 text-amber-100 dark:text-amber-900 bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
