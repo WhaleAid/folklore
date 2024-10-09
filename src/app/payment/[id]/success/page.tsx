@@ -73,7 +73,7 @@ export default function receipt() {
                     </button>
                 </div>
                 <div
-                    className="bg-amber-900 dark:bg-amber-100 absolute -z-10 md:bottom-28 bottom-2 w-full max-w-[400px] h-1/4"
+                    className="bg-amber-900 dark:bg-white absolute -z-10 md:bottom-28 bottom-2 w-full max-w-[400px] h-1/4"
                     style={
                         {
                             clipPath: "polygon(0% 1%, 100% 0, 100% 63%, 88% 99%, 85% 65%, 81% 84%, 76% 65%, 74% 79%, 68% 66%, 61% 85%, 55% 65%, 50% 93%, 41% 66%, 36% 80%, 29% 64%, 26% 97%, 21% 66%, 14% 92%, 9% 64%, 4% 96%, 0% 63%)"
