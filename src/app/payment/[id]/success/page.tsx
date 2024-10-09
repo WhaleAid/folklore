@@ -24,8 +24,8 @@ export default function receipt() {
     }, [id]);
 
     return (
-        <div className="flex h-full min-h-screen relative">
-            <div className="m-auto flex flex-col font-receipt bg-amber-900 dark:bg-white justify-center items-center dark:text-amber-900 text-amber-100 py-10 px-20 gap-4 max-w-[400px]">
+        <div className="flex h-screen">
+            <div className="flex m-auto h-fit flex-col font-receipt bg-amber-900 dark:bg-white justify-center items-center dark:text-amber-900 text-amber-100 py-10 px-20 gap-4 max-w-[400px] relative">
                 <div className="flex flex-col justify-center items-center gap-10">
                     <h1 className="text-6xl font-logo">Folklore</h1>
                     <FontAwesomeIcon icon={faReceipt} className="text-6xl" />
@@ -46,7 +46,6 @@ export default function receipt() {
                     </p>
                     <div className="flex justify-between items-end">
                         <p className="text-nowrap leading-normal">
-                            {/* limit de a few characters */}
                             {
                                 payment?.message.length! > 8 ?
                                     payment?.message.substring(0, 8)
@@ -73,7 +72,7 @@ export default function receipt() {
                     </button>
                 </div>
                 <div
-                    className="bg-amber-900 dark:bg-white absolute -z-10 md:bottom-28 bottom-2 w-full max-w-[400px] h-1/4"
+                    className="bg-amber-900 dark:bg-white absolute -z-10 -bottom-20 w-full max-w-[400px] h-1/4"
                     style={
                         {
                             clipPath: "polygon(0% 1%, 100% 0, 100% 63%, 88% 99%, 85% 65%, 81% 84%, 76% 65%, 74% 79%, 68% 66%, 61% 85%, 55% 65%, 50% 93%, 41% 66%, 36% 80%, 29% 64%, 26% 97%, 21% 66%, 14% 92%, 9% 64%, 4% 96%, 0% 63%)"
