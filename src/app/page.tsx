@@ -220,20 +220,20 @@ export default function Home() {
                         type="email"
                         name="email"
                         id="email"
-                        className="border border-amber-700 p-2 text-amber-100 dark:text-amber-900 bg-slate-100"
+                        className="border border-amber-700 p-2 text-amber-900 bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="message" className="font-logo text-xl dark:text-amber-100 text-amber-950">Message :</label>
+                      <label htmlFor="message" className="font-logo text-xl text-amber-950">Message :</label>
                       <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
                         Un message avec des précision sur la vidéo que vous souhaitez
                       </span>
                       <textarea
                         name="message"
                         id="message"
-                        className="border border-amber-700 p-2 text-amber-100 dark:text-amber-900 bg-slate-100"
+                        className="border border-amber-700 p-2 dark:text-amber-100 text-amber-900 bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
