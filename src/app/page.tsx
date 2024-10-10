@@ -15,6 +15,8 @@ import { faEnvelope, faHeadset, faPhone } from "@fortawesome/free-solid-svg-icon
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Hourglass } from "react-loader-spinner";
+import FadeInText from "@/components/ui/fadeinText";
+import { Card, CardBody } from "@nextui-org/card";
 
 interface formProps {
   email: string;
@@ -61,7 +63,7 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div className="overflow-hidden">
         <div id="hero" className="w-full flex items-center justify-between lg:flex-row flex-col">
           <AnimatePresence mode="sync">
             <motion.div
@@ -196,19 +198,16 @@ export default function Home() {
                     <video src="assets/videos/vid2.mp4" controls autoPlay muted />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid4.mp4" controls autoPlay muted />
+                    <video src="assets/videos/vid4.mp4" controls />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid5.mp4" controls autoPlay muted />
+                    <video src="assets/videos/vid5.mp4" controls />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid6.mp4" controls autoPlay muted />
+                    <video src="assets/videos/vid6.mp4" controls />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid7.mp4" controls autoPlay muted />
-                  </CarouselItem>
-                  <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid8.mp4" controls autoPlay muted />
+                    <video src="assets/videos/vid7.mp4" controls />
                   </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
@@ -338,13 +337,28 @@ export default function Home() {
         <div className="flex justify-center lg:w-4/5 w-full m-auto lg:flex-row flex-col lg:gap-0 gap-6">
           <div className="lg:w-1/2 w-full px-10">
             <h2 className="font-bold font-logo text-4xl dark:text-amber-100 text-amber-900 mb-6">à propos de nous</h2>
-            <p className="text-xl leading-loose">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidem
-            </p>
+            <FadeInText
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidem"
+              className="text-xl leading-loose" />
           </div>
-          <div className="lg:w-1/2 w-full">
-            <img src="assets/images/hamza-img.jpg" alt="" className="" />
-          </div>
+          <AnimatePresence mode="sync">
+            <motion.div
+              className="lg:w-1/2 w-full"
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="mt-8 mb-8 lg:w-[40vw] w-4/5 h-[60vh] mx-auto shadow-xl backdrop-blur-3xl relative overflow-hidden">
+                <span className='absolute inset-[-100000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#343434_90%,#5C4033_50%,#fff0db_100%)]' style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))' }} />
+                <CardBody className="p-0 h-full drop-shadow-2xl backdrop-blur-3xl">
+                  <div className="w-full h-full p-2">
+                    <img src="assets/images/hamza-img.jpg" alt="" className="h-full w-full object-cover" />
+                  </div>
+                </CardBody>
+              </Card>
+            </motion.div>
+          </AnimatePresence>
         </div>
         <div className="flex justify-center lg:w-full w-2/3 m-auto">
           <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -409,8 +423,8 @@ export default function Home() {
         <div className="flex m-auto justify-evenly items-center gap-4 w-full dark:bg-amber-100 bg-amber-900 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
             <div>
-              <h2 className="font-bold font-logo text-4xl dark:text-amber-900 text-amber-100 mb-6">Besoin d'aide</h2>
-              <h3 className="font-logo text-2xl dark:text-amber-900 text-amber-100 underline mb-6 ">Contact</h3>
+              <h2 className="font-bold font-logo text-4xl dark:text-amber-900 text-amber-100 mb-6">Besoin d'aide ?</h2>
+              <h3 className="font-logo text-2xl dark:text-amber-900 text-amber-100 mb-6 ">Contact</h3>
               <div className="flex items-center gap-4">
                 <FontAwesomeIcon icon={faEnvelope} className=" dark:text-amber-900 text-amber-100" />
                 <p className="text-xl dark:text-amber-900 text-amber-100">folklore.groupe@gmail.com</p>
