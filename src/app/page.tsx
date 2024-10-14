@@ -79,7 +79,7 @@ export default function Home() {
                 <span className="lg:text-8xl text-6xl font-logo dark:text-amber-100 text-amber-900">Folklore</span>
               </h1>
               <p className="text-2xl font-logo font-thin">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidem.
+                Dédicaces sur mesure pour transmettre vos messages en musique
               </p>
             </motion.div>
           </AnimatePresence>
@@ -220,7 +220,7 @@ export default function Home() {
                   <div className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-col justify-start items-start my-6 lg:w-2/3 w-full">
                       <h3 className="font-logo lg:text-4xl text-2xl dark:text-amber-100 text-amber-900">Description</h3>
-                      <p className="font-logo lg:text-lg text-md dark:text-amber-100 text-amber-900">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quidem.</p>
+                      <p className="font-logo lg:text-lg text-md dark:text-amber-100 text-amber-900">Toutes les commandes passées entre dimanche et vendredi seront traitées le samedi et envoyées le dimanche. Une commande passée le samedi sera traitée le samedi suivant.</p>
                       <span className="text-6xl font-logo">
                         50€
                       </span>
@@ -338,7 +338,10 @@ export default function Home() {
           <div className="lg:w-1/2 w-full px-10">
             <h2 className="font-bold font-logo text-4xl dark:text-amber-100 text-amber-900 mb-6">à propos de nous</h2>
             <FadeInText
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidemLorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quidem"
+              text="votre destination pour la musique traditionnelle marocaine authentique et vibrante. Notre groupe est né de la passion de préserver et de partager la richesse de la musique marocaine à travers des mélodies envoûtantes et des rythmes captivants.
+Nous offrons des dédicaces musicales uniques pour toutes vos occasions spéciales. Que ce soit pour un anniversaire, un mariage ou une célébration personnelle, nous nous engageons à créer des moments inoubliables avec nos performances sur mesure.
+Rejoignez-nous dans cette aventure musicale et laissez-nous apporter la magie des sons traditionnels marocains à vos événements. Pour chaque dédicace, une contrepartie est requise, permettant ainsi de soutenir notre mission de garder vivante la culture musicale marocaine.
+Merci de faire partie de notre communauté musicale! 🎶"
               className="text-xl leading-loose" />
           </div>
           <AnimatePresence mode="sync">
