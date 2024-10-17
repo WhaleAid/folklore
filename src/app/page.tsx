@@ -145,7 +145,7 @@ export default function Home() {
                 Dédicaces sur mesure pour transmettre vos messages en musique
               </p>
               <div className="w-full flex items-center mt-10">
-                <div className="lg:w-5/6 w-full bg-orange-200 h-20 flex justify-between items-center px-5">
+                <div className="lg:w-fit w-full bg-orange-200 flex lg:justify-start justify-between items-center p-4 gap-10">
                   <h2 className="text-black text-3xl font-logo">
                     Réservez maintenant
                   </h2>
@@ -156,13 +156,17 @@ export default function Home() {
                       form?.scrollIntoView({ behavior: "smooth" });
                     }
                   }>
-                    <div className="w-12">
-                      <svg width="50px" height="50px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" strokeWidth="0.00001">
+                    <motion.div
+                      initial={{ rotate: 0 }}
+                      whileInView={{ rotate: -360 }}
+                      transition={{ duration: .6, loop: 1 }}
+                      className="w-12">
+                      <svg width="40px" height="40px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" strokeWidth="0.00001">
                         <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                         <g id="SVGRepo_iconCarrier"><g> <path className="st0" d="M81.8,10.6C67.4,17.8,55,31.1,43.1,41.7C35,49,27.1,56.6,19.3,64.2c2.8-12.4,3.9-26.1-1.1-36.3 c-2.5-5-8.9-1.9-9.4,2.6c-0.8,7.6,0.5,15.5,0,23.2C8.3,61.9,7,70.1,4.8,78c-1.1,4,2.6,7.2,6.4,6.4c9.1-1.9,18.2-2.8,27.5-2.8 c8.5,0.1,17.1,2,25.5,1.3c2.3-0.2,3.4-3.2,1.2-4.5c-11.5-7-27.5-7.6-42-6.2c8.7-7.3,17.5-14.6,26.1-21.9C61.8,39.9,77,30.2,87,17.4 C90,13.7,86.4,8.3,81.8,10.6z" /> </g> </g>
                       </svg>
-                    </div>
+                    </motion.div>
                   </button>
                 </div>
               </div>
