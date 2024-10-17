@@ -517,25 +517,29 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
         </div>
         <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-amber-100 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
-            <div className="text-black">
+            <div className="text-blue-950">
               <h2 className="font-bold font-logo text-4xl dark:text-blackmb-6">Besoin d'aide ?</h2>
-              <h3 className="font-logo text-2xl dark:text-black mb-6 ">Contact</h3>
-              <div className="flex items-center gap-4">
-                <FontAwesomeIcon icon={faEnvelope} className=" dark:text-black" />
-                <p className="text-xl dark:text-black">folklore.groupe@gmail.com</p>
+              <h3 className="font-logo text-2xl mb-6 ">Contact</h3>
+              <div className="flex items-center gap-4 mb-2">
+                <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
+                <p className="text-xl">folklore.groupe@gmail.com</p>
+              </div>
+              <div className="flex items-center gap-4 mb-2">
+                <FontAwesomeIcon icon={faPhone} className="text-xl" />
+                <p className="text-xl ">+33 7 58 88 93 18</p>
+              </div>
+              <div className="flex items-center gap-4 mb-2">
+                <FontAwesomeIcon icon={faPhone} className="text-xl" />
+                <p className="text-xl ">+33 7 53 94 70 63</p>
               </div>
               <div className="flex items-center gap-4">
-                <FontAwesomeIcon icon={faPhone} className="dark:text-black" />
-                <p className="text-xl dark:text-black">+33 7 58 88 93 18 <span className="font-extrabold">/</span> +33 7 53 94 70 63</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="dark:text-black" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
-                <p className="text-xl dark:text-black">@afrah.berrada</p>
+                <svg xmlns="http://www.w3.org/2000/svg" className="text-xl" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
+                <p className="text-xl ">@afrah.berrada</p>
               </div>
             </div>
           </div>
           <div className="w-fit flex justify-center">
-            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-black" />
+            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-blue-950" />
           </div>
         </div>
       </div>
