@@ -421,8 +421,8 @@ export default function Home() {
               text="Votre destination pour la musique traditionnelle marocaine authentique et vibrante. Notre groupe est né de la passion de préserver et de partager la richesse de la musique marocaine à travers des mélodies envoûtantes et des rythmes captivants.
 Nous offrons des dédicaces musicales uniques pour toutes vos occasions spéciales. Que ce soit pour un anniversaire, un mariage ou une célébration personnelle, nous nous engageons à créer des moments inoubliables avec nos performances sur mesure.
 Rejoignez-nous dans cette aventure musicale et laissez-nous apporter la magie des sons traditionnels marocains à vos événements. Pour chaque dédicace, une contrepartie est requise, permettant ainsi de soutenir notre mission de garder vivante la culture musicale marocaine.
-Merci de faire partie de notre communauté musicale! 🎶"
-              className="text-xl leading-loose" />
+Merci de faire partie de notre communauté musicale!&nbsp;🎶"
+              className="lg:text-xl text-lg lg:leading-loose leading-snug" />
           </div>
           <AnimatePresence mode="sync">
             <motion.div
