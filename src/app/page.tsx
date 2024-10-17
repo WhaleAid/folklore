@@ -439,7 +439,7 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
               transition={{ duration: 0.5 }}
             >
               <Card className="mt-8 mb-8 lg:w-[40vw] w-4/5 h-[60vh] mx-auto shadow-xl backdrop-blur-3xl relative overflow-hidden">
-                <span className='absolute inset-[-100000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#343434_90%,#5C4033_50%,#fff0db_100%)]' style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))' }} />
+                <span className='absolute inset-[-100000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#343434_10%,#c1272d_50%,#006233_100%)]' style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))' }} />
                 <CardBody className="p-0 h-full drop-shadow-2xl backdrop-blur-3xl">
                   <div className="w-full h-full p-2 overflow-hidden">
                     <AnimatePresence mode="wait">
