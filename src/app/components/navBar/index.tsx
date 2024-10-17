@@ -25,7 +25,7 @@ const NavBar: FC<navBarProps> = () => {
     }, [isScrolled]);
 
     return (
-        <div className={`w-full fixed top-0 left-0 flex dark:text-amber-100 text-amber-900 justify-start items-end ${!isScrolled ? 'bg-gradient-to-b from-[#000000a8] to-[#0000]' : 'dark:bg-amber-900 bg-amber-100'
+        <div className={`w-full fixed top-0 left-0 flex text-amber-100 justify-start transition-all items-end ${!isScrolled ? 'bg-gradient-to-b from-[#000000a8] to-[#0000]' : 'bg-[#02008f]'
             }
         z-50`}>
             <Logo />

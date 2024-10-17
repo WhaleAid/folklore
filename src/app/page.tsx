@@ -13,10 +13,11 @@ import {
 } from "@/components/ui/carousel"
 import { faEnvelope, faHeadset, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Hourglass } from "react-loader-spinner";
 import FadeInText from "@/components/ui/fadeinText";
 import { Card, CardBody } from "@nextui-org/card";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 interface formProps {
   email: string;
@@ -32,6 +33,66 @@ export default function Home() {
     email: yup.string().email("Format d'email non valide").required("Email requis"),
     message: yup.string().required("Le message est requis pour savoir votre besoin"),
   });
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const galleryImages = [
+    {
+      src: "assets/images/photo1.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo2.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo3.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo4.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo5.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo6.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo7.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo8.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo9.jpg",
+      alt: "folklore"
+    },
+    {
+      src: "assets/images/photo10.jpg",
+      alt: "folklore"
+    }
+  ]
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, [galleryImages.length]);
+
+  const variants = {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 1.05 },
+  };
+
 
   const formik = useFormik({
     initialValues: {
@@ -64,54 +125,39 @@ export default function Home() {
   return (
     <>
       <div className="overflow-hidden">
-        <div id="hero" className="w-full flex items-center justify-between lg:flex-row flex-col">
+        <div id="hero" className="w-full flex items-center justify-between lg:flex-row flex-col overflow-hidden relative">
+          <div className="bg-hero top-0 left-0 absolute w-full h-full -z-10 opacity-30">
+          </div>
           <AnimatePresence mode="sync">
             <motion.div
               id="hero-text" className="px-6 flex flex-col gap-4 lg:mt-1 mt-28"
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -100 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1 }}
             >
               <h1>
-                <span className="lg:text-8xl text-6xl font-logo dark:text-amber-100 text-amber-900">Bienvenue sur</span>
+                <span className="lg:text-8xl text-6xl font-logo text-amber-100">Bienvenue sur</span>
                 <br />
-                <span className="lg:text-8xl text-6xl font-logo dark:text-amber-100 text-amber-900">Folklore</span>
+                <span className="lg:text-8xl text-6xl font-logo text-amber-100">Folklore</span>
               </h1>
               <p className="text-2xl font-logo font-thin">
                 Dédicaces sur mesure pour transmettre vos messages en musique
               </p>
-            </motion.div>
-          </AnimatePresence>
-          <AnimatePresence mode="sync">
-            <motion.div
-              id="hero-image"
-              className="lg:mt-auto mt-28"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-            >
-              <img
-                src="assets/images/hamza-img.jpg"
-                alt="hero"
-                className="w-full h-full object-cover"
-              />
-              <div className="w-full flex items-center -mt-28">
-                <div className="w-5/6 bg-amber-800 h-28 flex justify-start items-center px-5">
-                  <h2 className="text-white text-3xl font-logo">
+              <div className="w-full flex items-center mt-10">
+                <div className="lg:w-5/6 w-full bg-orange-200 h-20 flex justify-between items-center px-5">
+                  <h2 className="text-black text-3xl font-logo">
                     Réservez maintenant
                   </h2>
-                </div>
-                <div className="w-1/6 bg-orange-900 h-28 flex justify-center items-center">
-                  <button className="flex justify-center w-full" onClick={
+
+                  <button className="flex justify-center w-fit" onClick={
                     () => {
                       const form = document.getElementById("form");
                       form?.scrollIntoView({ behavior: "smooth" });
                     }
                   }>
                     <div className="w-12">
-                      <svg width="50px" height="50px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#d9b99b" stroke="#d9b99b" strokeWidth="0.00001">
+                      <svg width="50px" height="50px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" strokeWidth="0.00001">
                         <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                         <g id="SVGRepo_iconCarrier"><g> <path className="st0" d="M81.8,10.6C67.4,17.8,55,31.1,43.1,41.7C35,49,27.1,56.6,19.3,64.2c2.8-12.4,3.9-26.1-1.1-36.3 c-2.5-5-8.9-1.9-9.4,2.6c-0.8,7.6,0.5,15.5,0,23.2C8.3,61.9,7,70.1,4.8,78c-1.1,4,2.6,7.2,6.4,6.4c9.1-1.9,18.2-2.8,27.5-2.8 c8.5,0.1,17.1,2,25.5,1.3c2.3-0.2,3.4-3.2,1.2-4.5c-11.5-7-27.5-7.6-42-6.2c8.7-7.3,17.5-14.6,26.1-21.9C61.8,39.9,77,30.2,87,17.4 C90,13.7,86.4,8.3,81.8,10.6z" /> </g> </g>
@@ -122,14 +168,33 @@ export default function Home() {
               </div>
             </motion.div>
           </AnimatePresence>
+          <AnimatePresence mode="sync">
+            <motion.div
+              id="hero-image"
+              className="lg:mt-auto mt-28 w-full lg:w-1/2 lg:h-[1000px] h-full relative"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+            >
+              <img
+                src="assets/images/hamza-img.jpg"
+                alt="hero"
+                className="w-full h-4/6 object-cover top-20 right-20 lg:absolute shadow-2xl"
+              />
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "100%" }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5 }}
+                className="w-1/2 bg-gradient-to-b from-amber-300 to-bg-[#02008f] absolute top-0 right-0 -z-10"></motion.div>
+            </motion.div>
+          </AnimatePresence>
         </div>
         <div id="form" className="lg:w-full w-2/3 m-auto flex justify-center items-center ">
           <svg className="" version="1.0" xmlns="http://www.w3.org/2000/svg"
-            width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
+            width="600px" height="200px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
-            <metadata>
-              Created by potrace 1.15, written by Peter Selinger 2001-2017
-            </metadata>
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
               fill="#d9b99b" stroke="none">
               <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
@@ -185,11 +250,16 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div>
-            <h2 className="text-center font-bold font-logo text-4xl dark:text-amber-100 text-amber-900 mb-6">Notre Service</h2>
+            <h2 className="text-center font-bold font-logo text-4xl text-amber-100 mb-6">Notre Service</h2>
           </div>
-          <div className="flex justify-center items-center lg:w-5/6 w-4/6 mt-12 lg:flex-row flex-col">
-            <div className="flex flex-col w-full justify-center items-center">
-              <Carousel className="w-full max-w-xl margin-auto shadow-lg">
+          <div className="flex justify-center items-center lg:w-5/6 w-full mt-12 lg:flex-row flex-col">
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 1 }}
+              className="flex flex-col w-full justify-center items-center">
+              <Carousel className="lg:w-full w-4/6 max-w-xl margin-auto shadow-lg">
                 <CarouselContent>
                   <CarouselItem className="max-w-[300px]">
                     <video src="assets/videos/vid1.mp4" controls autoPlay muted />
@@ -213,28 +283,34 @@ export default function Home() {
                 <CarouselPrevious />
                 <CarouselNext />
               </Carousel>
-            </div>
-            <div className="w-full">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              transition={{ duration: 1 }}
+              className="w-full lg:px-auto px-10">
               <FormikProvider value={formik}>
                 <Form>
                   <div className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-col justify-start items-start my-6 lg:w-2/3 w-full">
-                      <h3 className="font-logo lg:text-4xl text-2xl dark:text-amber-100 text-amber-900">Description</h3>
-                      <p className="font-logo lg:text-lg text-md dark:text-amber-100 text-amber-900">Toutes les commandes passées entre dimanche et vendredi seront traitées le samedi et envoyées le dimanche. Une commande passée le samedi sera traitée le samedi suivant.</p>
+                      <h3 className="font-logo lg:text-4xl text-2xl text-amber-100">Description</h3>
+                      <p className="font-logo lg:text-lg text-md text-amber-100">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
+                      </p>
                       <span className="text-6xl font-logo">
                         50€
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="email" className="font-logo text-xl dark:text-amber-100 text-amber-950">Email* :</label>
-                      <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
+                      <label htmlFor="email" className="font-logo text-xl text-amber-100">Email* :</label>
+                      <span className="italic font-logo mb-2 text-sm text-white">
                         L'email où vous recevrez votre vidéo
                       </span>
                       <input
                         type="email"
                         name="email"
                         id="email"
-                        className="border border-amber-700 p-2 text-amber-900 bg-slate-100"
+                        className="border border-red-700 p-2 text-black bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
@@ -243,14 +319,14 @@ export default function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="message" className="font-logo text-xl dark:text-amber-100 text-amber-950">Message* :</label>
-                      <span className="italic font-logo mb-2 text-sm dark:text-white text-black">
+                      <label htmlFor="message" className="font-logo text-xl text-amber-100">Message* :</label>
+                      <span className="italic font-logo mb-2 text-sm text-white">
                         Un message avec des précision sur la vidéo que vous souhaitez
                       </span>
                       <textarea
                         name="message"
                         id="message"
-                        className="border border-amber-700 p-2 text-amber-900 bg-slate-100"
+                        className="border border-red-700 p-2 text-black bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
@@ -258,7 +334,7 @@ export default function Home() {
                         {formik.touched.message && formik.errors.message ? formik.errors.message : ""}
                       </span>
                     </div>
-                    <button type="submit" className="bg-amber-800 text-white rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-amber-600 transition-all" disabled={loading}>
+                    <button type="submit" className="bg-red-600 text-white rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-red-900 transition-all" disabled={loading}>
                       {
                         loading ? <Hourglass
                           visible={true}
@@ -274,12 +350,12 @@ export default function Home() {
                   </div>
                 </Form>
               </FormikProvider>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="lg:w-full w-2/3 m-auto flex justify-center items-center">
           <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-            width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
+            width="600px" height="200px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
               fill="#d9b99b" stroke="none">
@@ -334,9 +410,9 @@ export default function Home() {
             </g>
           </svg>
         </div>
-        <div className="flex justify-center lg:w-4/5 w-full m-auto lg:flex-row flex-col lg:gap-0 gap-6">
+        <div className="flex justify-center lg:w-4/5 w-full m-auto lg:flex-row flex-col lg:gap-0 gap-6 items-center">
           <div className="lg:w-1/2 w-full px-10">
-            <h2 className="font-bold font-logo text-4xl dark:text-amber-100 text-amber-900 mb-6">à propos de nous</h2>
+            <h2 className="font-bold font-logo text-4xl text-amber-100 mb-6">à propos de nous</h2>
             <FadeInText
               text="Votre destination pour la musique traditionnelle marocaine authentique et vibrante. Notre groupe est né de la passion de préserver et de partager la richesse de la musique marocaine à travers des mélodies envoûtantes et des rythmes captivants.
 Nous offrons des dédicaces musicales uniques pour toutes vos occasions spéciales. Que ce soit pour un anniversaire, un mariage ou une célébration personnelle, nous nous engageons à créer des moments inoubliables avec nos performances sur mesure.
@@ -355,8 +431,20 @@ Merci de faire partie de notre communauté musicale! 🎶"
               <Card className="mt-8 mb-8 lg:w-[40vw] w-4/5 h-[60vh] mx-auto shadow-xl backdrop-blur-3xl relative overflow-hidden">
                 <span className='absolute inset-[-100000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#343434_90%,#5C4033_50%,#fff0db_100%)]' style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))' }} />
                 <CardBody className="p-0 h-full drop-shadow-2xl backdrop-blur-3xl">
-                  <div className="w-full h-full p-2">
-                    <img src="assets/images/hamza-img.jpg" alt="" className="h-full w-full object-cover" />
+                  <div className="w-full h-full p-2 overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={galleryImages[currentIndex].src}
+                        src={galleryImages[currentIndex].src}
+                        alt={galleryImages[currentIndex].alt}
+                        className="h-full w-full object-cover"
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        variants={variants}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                      />
+                    </AnimatePresence>
                   </div>
                 </CardBody>
               </Card>
@@ -365,7 +453,7 @@ Merci de faire partie de notre communauté musicale! 🎶"
         </div>
         <div className="flex justify-center lg:w-full w-2/3 m-auto">
           <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-            width="600px" height="300px" viewBox="0 0 1280.000000 640.000000"
+            width="600px" height="200px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
             <metadata>
               Created by potrace 1.15, written by Peter Selinger 2001-2017
@@ -423,31 +511,31 @@ Merci de faire partie de notre communauté musicale! 🎶"
             </g>
           </svg>
         </div>
-        <div className="flex m-auto justify-evenly items-center gap-4 w-full dark:bg-amber-100 bg-amber-900 py-20 lg:flex-row flex-col">
+        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-amber-100 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
-            <div>
-              <h2 className="font-bold font-logo text-4xl dark:text-amber-900 text-amber-100 mb-6">Besoin d'aide ?</h2>
-              <h3 className="font-logo text-2xl dark:text-amber-900 text-amber-100 mb-6 ">Contact</h3>
+            <div className="text-black">
+              <h2 className="font-bold font-logo text-4xl dark:text-blackmb-6">Besoin d'aide ?</h2>
+              <h3 className="font-logo text-2xl dark:text-black mb-6 ">Contact</h3>
               <div className="flex items-center gap-4">
-                <FontAwesomeIcon icon={faEnvelope} className=" dark:text-amber-900 text-amber-100" />
-                <p className="text-xl dark:text-amber-900 text-amber-100">folklore.groupe@gmail.com</p>
+                <FontAwesomeIcon icon={faEnvelope} className=" dark:text-black" />
+                <p className="text-xl dark:text-black">folklore.groupe@gmail.com</p>
               </div>
               <div className="flex items-center gap-4">
-                <FontAwesomeIcon icon={faPhone} className="dark:text-amber-900 text-amber-100" />
-                <p className="text-xl dark:text-amber-900 text-amber-100">+33 7 58 88 93 18</p>
+                <FontAwesomeIcon icon={faPhone} className="dark:text-black" />
+                <p className="text-xl dark:text-black">+33 7 58 88 93 18 <span className="font-extrabold">/</span> +33 7 53 94 70 63</p>
               </div>
               <div className="flex items-center gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="dark:text-amber-900 text-amber-100" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
-                <p className="text-xl dark:text-amber-900 text-amber-100">@afrah.berrada</p>
+                <svg xmlns="http://www.w3.org/2000/svg" className="dark:text-black" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
+                <p className="text-xl dark:text-black">@afrah.berrada</p>
               </div>
             </div>
           </div>
           <div className="w-fit flex justify-center">
-            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl dark:text-amber-900 text-amber-100" />
+            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-black" />
           </div>
         </div>
       </div>
-      <footer className="w-full flex justify-center items-center dark:bg-amber-800 dark:text-amber-100 bg-amber-100 text-amber-900 py-4">
+      <footer className="w-full flex justify-center items-center dark:bg-blue-700 dark:text-amber-100 bg-amber-100 text-blue-700 py-4">
         <p className="font-logo text-xl">© 2024 Folklore</p>
       </footer>
     </>

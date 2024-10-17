@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #fff0db;
-  --foreground: #5C4033;
+  --background: #02008f;
+  --foreground: #fff0db;
   --logo: 'Playfair Display', serif;
   --receipt: 'Inconsolata', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #5C4033;
+    --background: #02008f;
     --foreground: #fff0db;
   }
 }
@@ -22,6 +22,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), #02008f), url('/assets/images/background.jpg');
 }
 
 @layer utilities {
