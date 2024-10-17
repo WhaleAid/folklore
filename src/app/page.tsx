@@ -80,6 +80,13 @@ export default function Home() {
   ]
 
   useEffect(() => {
+    galleryImages.forEach((image) => {
+      const img = new window.Image();
+      img.src = image.src;
+    });
+  }, [galleryImages]);
+
+  useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
     }, 2000);
