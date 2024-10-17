@@ -272,16 +272,16 @@ export default function Home() {
                     <video src="assets/videos/vid2.mp4" controls autoPlay muted />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid4.mp4" controls />
+                    <video src="assets/videos/vid4.mp4" controls autoPlay muted />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid5.mp4" controls />
+                    <video src="assets/videos/vid5.mp4" controls autoPlay muted />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid6.mp4" controls />
+                    <video src="assets/videos/vid6.mp4" controls autoPlay muted />
                   </CarouselItem>
                   <CarouselItem className="max-w-[300px]">
-                    <video src="assets/videos/vid7.mp4" controls />
+                    <video src="assets/videos/vid7.mp4" controls autoPlay muted />
                   </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
