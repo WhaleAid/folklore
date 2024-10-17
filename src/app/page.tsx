@@ -58,23 +58,23 @@ export default function Home() {
       alt: "folklore"
     },
     {
-      src: "assets/images/photo6.jpg",
+      src: "assets/images/photo06.jpg",
       alt: "folklore"
     },
     {
-      src: "assets/images/photo7.jpg",
+      src: "assets/images/photo07.jpg",
       alt: "folklore"
     },
     {
-      src: "assets/images/photo8.jpg",
+      src: "assets/images/photo08.jpg",
       alt: "folklore"
     },
     {
-      src: "assets/images/photo9.jpg",
+      src: "assets/images/photo09.jpg",
       alt: "folklore"
     },
     {
-      src: "assets/images/photo10.jpg",
+      src: "assets/images/photo010.jpg",
       alt: "folklore"
     }
   ]
@@ -99,7 +99,6 @@ export default function Home() {
     animate: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 1.05 },
   };
-
 
   const formik = useFormik({
     initialValues: {
