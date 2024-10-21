@@ -105,7 +105,7 @@ export default function Home() {
     initialValues: {
       email: "",
       message: "",
-      amount: 0.01
+      amount: 0.50
     },
     validationSchema: validationSchema,
     onSubmit: async (values: formProps) => {
@@ -114,22 +114,35 @@ export default function Home() {
         setLoading(false);
         return;
       }
+
       fetch(process.env.NEXT_PUBLIC_API_URL + "/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(values),
       })
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`Error: ${res.status}`);
+          }
+          return res.json();
+        })
         .then((data) => {
           setLoading(false);
-          toast.success("Vous allez être redirigé vers la page de paiement");
-          router.push(data.paymentLink)
-        }).catch((error) => {
+          toast.success("Redirection vers le paiement...");
+          router.push(data.paymentLink);
+        })
+        .catch((error) => {
           setLoading(false);
-          toast.error("Erreur lors de la création de la commande")
+          if (error.message.includes("400")) {
+            toast.error("Requête invalide. Veuillez vérifier les données saisies.");
+          } else if (error.message.includes("500")) {
+            toast.error("Erreur interne du serveur. Veuillez réessayer plus tard.");
+          } else {
+            toast.error("Erreur inconnue. Veuillez réessayer plus tard.");
+          }
         });
     }
   })
