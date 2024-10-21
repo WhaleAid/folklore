@@ -18,6 +18,7 @@ import { Hourglass } from "react-loader-spinner";
 import FadeInText from "@/components/ui/fadeinText";
 import { Card, CardBody } from "@nextui-org/card";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import toast, { Toaster } from "react-hot-toast";
 
 interface formProps {
   email: string;
@@ -124,13 +125,18 @@ export default function Home() {
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
+          toast.success("Vous allez être redirigé vers la page de paiement");
           router.push(data.paymentLink)
-        })
+        }).catch((error) => {
+          setLoading(false);
+          toast.error("Erreur lors de la création de la commande")
+        });
     }
   })
 
   return (
     <>
+      <Toaster />
       <div className="overflow-hidden">
         <div id="hero" className="w-full flex items-center justify-between lg:flex-row flex-col overflow-hidden relative">
           <div className="bg-hero top-0 left-0 absolute w-full h-full -z-10 opacity-30">
