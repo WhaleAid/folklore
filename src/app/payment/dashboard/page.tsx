@@ -66,7 +66,7 @@ export default function Dashboard() {
         if (filterStatus === "All") {
             setFilteredPayments(payments);
         } else {
-            const filtered = payments.filter(payment => 
+            const filtered = payments.filter(payment =>
                 filterStatus === "Paid" ? payment.status === "Paid" : payment.status !== "Paid"
             );
             setFilteredPayments(filtered);
@@ -158,7 +158,7 @@ export default function Dashboard() {
                             </ModalBody>
                         </Modal>
                     ) : (
-                        <div className="w-full h-full px-4 md:px-8 mt-10 overflow-y-auto">
+                        <div className="w-full h-full px-4 md:px-8 mt-16 overflow-y-auto">
                             <h1 className="text-3xl md:text-4xl font-logo mb-4 text-center md:text-left">Dashboard</h1>
                             <div>
                                 <div className="w-full flex flex-col md:flex-row justify-between items-center mb-4 gap-2">
@@ -178,7 +178,7 @@ export default function Dashboard() {
                                         <thead className="bg-red-900 text-white">
                                             <tr className="font-logo text-lg md:text-xl">
                                                 <th className="px-2 md:px-4 py-2">Email</th>
-                                                <th className="px-2 md:px-4 py-2">Message</th>
+                                                <th className="px-2 md:px-4 py-2 max-w-96">Message</th>
                                                 <th className="px-2 md:px-4 py-2">Montant</th>
                                                 <th className="px-2 md:px-4 py-2">Statut</th>
                                                 <th className="px-2 md:px-4 py-2">Commande</th>
@@ -188,9 +188,13 @@ export default function Dashboard() {
                                             {
                                                 filteredPayments.length > 0 ? (
                                                     filteredPayments.map((payment) => (
-                                                        <tr key={payment._id} className="odd:bg-green-900 even:bg-green-950 bg-opacity-15 text-white font-receipt text-base text-center">
+                                                        <tr key={payment._id} className="odd:bg-green-900 even:bg-green-950 bg-opacity-15 text-white font-receipt text-base md:text-center text-left">
                                                             <td className="px-2 md:px-6 py-4 whitespace-nowrap ">{payment.email}</td>
-                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap  max-w-96 text-wrap">{payment.message}</td>
+                                                            <td className="px-2 md:px-6 py-4">
+                                                                <div className="w-96">
+                                                                    {payment.message}
+                                                                </div>
+                                                            </td>
                                                             <td className="px-2 md:px-6 py-4 whitespace-nowrap ">{payment.amount}</td>
                                                             <td className="px-2 md:px-6 py-4 whitespace-nowrap">
                                                                 <span className={`px-2 py-1 rounded-md text-sm font- text-white ${payment.status === "Paid" ? "bg-green-600" : "bg-red-700"}`}>
