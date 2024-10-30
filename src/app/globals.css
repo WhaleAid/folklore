@@ -5,16 +5,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #f5f5f5;
-  --foreground: #000000;
+  --background: #000000;
+  --foreground: #e7dbc5;
   --logo: 'Playfair Display', serif;
   --receipt: 'Inconsolata', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f5f5f5;
-    --foreground: #000000;
+    --background: #000000;
+    --foreground: #e7dbc5;
   }
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .bg-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), #f5f5f5), url('/assets/images/background.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), #000000), url('/assets/images/background.jpg');
 }
 
 @layer utilities {

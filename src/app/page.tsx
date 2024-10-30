@@ -163,22 +163,22 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <h1>
-                <span className="lg:text-8xl text-6xl font-logo text-black">Bienvenue sur</span>
+                <span className="lg:text-8xl text-6xl font-logo text-amber-100">Bienvenue sur</span>
                 <br />
-                <span className="lg:text-8xl text-6xl font-logo text-black">Folklore</span>
+                <span className="lg:text-8xl text-6xl font-logo text-amber-100">Folklore</span>
               </h1>
-              <p className="text-2xl font-logo font-thin text-black">
+              <p className="text-2xl font-logo font-thin text-amber-100e">
                 Dédicaces sur mesure pour transmettre vos messages en musique
               </p>
               <div className="w-full flex items-center mt-10">
-                <div className="lg:w-fit w-full bg-red-400 flex lg:justify-start justify-between items-center p-4 gap-10">
+                <div className="lg:w-fit w-full bg-red-600 flex text-white lg:justify-start justify-between items-center p-4 gap-10">
                   <button className="flex justify-center w-fit gap-4" onClick={
                     () => {
                       const form = document.getElementById("form");
                       form?.scrollIntoView({ behavior: "smooth" });
                     }
                   }>
-                    <h2 className="text-black text-3xl font-logo">
+                    <h2 className="text-white text-3xl font-logo">
                       Réservez maintenant
                     </h2>
                     <motion.div
@@ -186,7 +186,7 @@ export default function Home() {
                       whileInView={{ rotate: -360 }}
                       transition={{ duration: .6, loop: 1 }}
                       className="w-12">
-                      <svg width="40px" height="40px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" strokeWidth="0.00001">
+                      <svg width="40px" height="40px" viewBox="0 0 91.00 91.00" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#fff" stroke="#fff" strokeWidth="0.00001">
                         <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                         <g id="SVGRepo_iconCarrier"><g> <path className="st0" d="M81.8,10.6C67.4,17.8,55,31.1,43.1,41.7C35,49,27.1,56.6,19.3,64.2c2.8-12.4,3.9-26.1-1.1-36.3 c-2.5-5-8.9-1.9-9.4,2.6c-0.8,7.6,0.5,15.5,0,23.2C8.3,61.9,7,70.1,4.8,78c-1.1,4,2.6,7.2,6.4,6.4c9.1-1.9,18.2-2.8,27.5-2.8 c8.5,0.1,17.1,2,25.5,1.3c2.3-0.2,3.4-3.2,1.2-4.5c-11.5-7-27.5-7.6-42-6.2c8.7-7.3,17.5-14.6,26.1-21.9C61.8,39.9,77,30.2,87,17.4 C90,13.7,86.4,8.3,81.8,10.6z" /> </g> </g>
@@ -289,7 +289,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div>
-            <h2 className="text-center font-bold font-logo text-4xl text-green-700 mb-6">Notre Service</h2>
+            <h2 className="text-center font-bold font-logo text-4xl text-amber-100 mb-6">Notre Service</h2>
           </div>
           <div className="flex justify-center items-center lg:w-5/6 w-full mt-12 lg:flex-row flex-col">
             <motion.div
@@ -333,16 +333,16 @@ export default function Home() {
                 <Form>
                   <div className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-col justify-start items-start my-6 lg:w-2/3 w-full">
-                      <h3 className="font-logo lg:text-4xl text-2xl text-black">Description</h3>
-                      <p className="font-logo lg:text-lg text-md text-black">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
+                      <h3 className="font-logo lg:text-4xl text-2xl text-amber-100">Description</h3>
+                      <p className="font-logo lg:text-lg text-md text-white">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
                       </p>
-                      <span className="text-6xl font-logo text-green-600">
+                      <span className="text-6xl font-logo text-amber-100">
                         50€
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="email" className="font-logo text-xl text-black">Email* :</label>
-                      <span className="italic font-logo mb-2 text-sm text-red-500">
+                      <label htmlFor="email" className="font-logo text-xl text-amber-100">Email* :</label>
+                      <span className="italic font-logo mb-2 text-sm text-white">
                         L'email où vous recevrez votre vidéo
                       </span>
                       <input
@@ -353,13 +353,13 @@ export default function Home() {
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
-                      <span className="dark:text-red-400 text-red-600">
+                      <span className="text-red-400 ">
                         {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="message" className="font-logo text-xl text-black">Message* :</label>
-                      <span className="italic font-logo mb-2 text-sm text-red-500">
+                      <label htmlFor="message" className="font-logo text-xl text-amber-100">Message* :</label>
+                      <span className="italic font-logo mb-2 text-sm text-white">
                         Un message avec des précision sur la vidéo que vous souhaitez
                       </span>
                       <textarea
@@ -369,11 +369,11 @@ export default function Home() {
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
-                      <span className="dark:text-red-400 text-red-600">
+                      <span className="text-red-400 ">
                         {formik.touched.message && formik.errors.message ? formik.errors.message : ""}
                       </span>
                     </div>
-                    <button type="submit" className={`${loading ? 'bg-red-300' : 'bg-red-600'} text-white min-w-44 rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-red-900 transition-all flex justify-center items-center`} disabled={loading}>
+                    <button type="submit" className={`${loading ? 'bg-green-300' : 'bg-green-600'} text-white min-w-44 rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-green-900 transition-all flex justify-center items-center`} disabled={loading}>
                       {
                         loading ? <Hourglass
                           visible={true}
@@ -382,7 +382,7 @@ export default function Home() {
                           ariaLabel="hourglass-loading"
                           wrapperStyle={{}}
                           wrapperClass=""
-                          colors={['#0d4e26', '#0d4e3e']}
+                          colors={['#f72d41', '#fc8894']}
                         /> : "Valider"
                       }
                     </button>
@@ -451,13 +451,13 @@ export default function Home() {
         </div>
         <div className="flex justify-center lg:w-4/5 w-full m-auto lg:flex-row flex-col lg:gap-0 gap-6 items-center">
           <div className="lg:w-1/2 w-full px-10">
-            <h2 className="font-bold font-logo text-4xl text-green-700 mb-6">à propos de nous</h2>
+            <h2 className="font-bold font-logo text-4xl text-amber-100 mb-6">à propos de nous</h2>
             <FadeInText
               text="Votre destination pour la musique traditionnelle marocaine authentique et vibrante. Notre groupe est né de la passion de préserver et de partager la richesse de la musique marocaine à travers des mélodies envoûtantes et des rythmes captivants.
 Nous offrons des dédicaces musicales uniques pour toutes vos occasions spéciales. Que ce soit pour un anniversaire, un mariage ou une célébration personnelle, nous nous engageons à créer des moments inoubliables avec nos performances sur mesure.
 Rejoignez-nous dans cette aventure musicale et laissez-nous apporter la magie des sons traditionnels marocains à vos événements. Pour chaque dédicace, une contrepartie est requise, permettant ainsi de soutenir notre mission de garder vivante la culture musicale marocaine.
 Merci de faire partie de notre communauté musicale!&nbsp;🎶"
-              className="lg:text-xl text-lg lg:leading-loose leading-snug text-black" />
+              className="lg:text-xl text-lg lg:leading-loose leading-snug text-white" />
           </div>
           <AnimatePresence mode="sync">
             <motion.div
@@ -550,36 +550,40 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
             </g>
           </svg>
         </div>
-        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-red-200 py-20 lg:flex-row flex-col">
+        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-gray-950 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
-            <div className="text-black">
-              <h2 className="font-bold font-logo text-4xl dark:text-blackmb-6">Besoin d'aide ?</h2>
-              <h3 className="font-logo text-2xl mb-6 ">Contact</h3>
-              <div className="flex items-center gap-4 mb-2">
-                <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
+            <div className="text-amber-100">
+              <h2 className="font-bold font-logo text-6xl mb-6">Besoin d'aide ?</h2>
+              <h3 className="font-logo text-4xl mb-6 ">Contact</h3>
+              <div className="flex items-center gap-4 mb-2 text-white">
+                <FontAwesomeIcon icon={faEnvelope} className="text-xl text-red-500" />
                 <p className="text-xl">folklore.groupe@gmail.com</p>
               </div>
-              <div className="flex items-center gap-4 mb-2">
-                <FontAwesomeIcon icon={faPhone} className="text-xl" />
+              <div className="flex items-center gap-4 mb-2 text-white">
+                <FontAwesomeIcon icon={faPhone} className="text-xl text-green-500" />
                 <p className="text-xl ">+33 7 58 88 93 18</p>
               </div>
-              <div className="flex items-center gap-4 mb-2">
-                <FontAwesomeIcon icon={faPhone} className="text-xl" />
+              <div className="flex items-center gap-4 mb-2 text-white">
+                <FontAwesomeIcon icon={faPhone} className="text-xl text-red-500" />
                 <p className="text-xl ">+33 7 53 94 70 63</p>
               </div>
-              <div className="flex items-center gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="text-xl" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
+              <div className="flex items-center gap-4 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" className="text-xl text-green-500" width="0.88em" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121 121 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z" /></svg>
                 <p className="text-xl ">@afrah.berrada</p>
               </div>
             </div>
           </div>
           <div className="w-fit flex justify-center">
-            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-black" />
+            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-amber-100" />
           </div>
         </div>
       </main>
-      <footer className="w-full flex justify-center items-center bg-green-700 text-white py-4">
-        <p className="font-logo text-xl">© 2024 Folklore</p>
+      <footer className="w-full flex justify-center items-center bg-black text-white py-4">
+        <p className="font-logo text-xl">
+          <span className="text-green-500">
+            © {' '}
+          </span>
+          2024 Folklore</p>
       </footer>
     </>
   );

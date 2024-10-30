@@ -25,11 +25,11 @@ const NavBar: FC<navBarProps> = () => {
     }, [isScrolled]);
 
     return (
-        <div className={`w-full fixed top-0 left-0 flex text-green-700 justify-start transition-all items-end ${!isScrolled ? 'bg-gradient-to-b from-[#ffffffd3] to-[#0000]' : 'bg-[#ffffff]'
+        <div className={`w-full fixed top-0 left-0 flex text-green-700 justify-start transition-all items-end ${!isScrolled ? 'bg-gradient-to-b from-[#000] to-[#0000]' : 'bg-[#000]'
             }
         z-50`}>
             <Logo />
-            <span className="mb-6 font-logo text-black px-2 cursor-default hover:scale-110 transition-all drop-shadow-xl">
+            <span className="mb-6 font-logo text-amber-100 px-2 cursor-default hover:scale-110 transition-all drop-shadow-xl">
                 Voyagez à travers les sons du Maroc...
             </span>
         </div>

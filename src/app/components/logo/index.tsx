@@ -23,7 +23,7 @@ const Logo: FC<LogoProps> = () => {
                 }
             }
         }>
-            <h1 className="text-black text-4xl font-logo drop-shadow-2xl">Folklore</h1>
+            <h1 className="text-amber-100 text-4xl font-logo drop-shadow-2xl">Folklore</h1>
         </div>
     );
 }

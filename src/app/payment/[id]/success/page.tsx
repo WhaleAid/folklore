@@ -26,14 +26,14 @@ export default function receipt() {
 
     return (
         <div className="flex h-screen">
-            <div className="flex m-auto h-fit flex-col font-receipt bg-amber-900 dark:bg-white justify-center items-center dark:text-amber-900 text-amber-100 py-10 px-20 gap-4 max-w-[400px] relative">
+            <div className="flex m-auto h-fit flex-col font-receipt  justify-center items-center bg-amber-100 py-10 px-20 gap-4 max-w-[400px] relative">
                 <div className="flex flex-col justify-center items-center gap-10">
-                    <h1 className="text-6xl font-logo">Folklore</h1>
-                    <FontAwesomeIcon icon={faReceipt} className="text-6xl" />
+                    <h1 className="text-6xl font-logo text-black">Folklore</h1>
+                    <FontAwesomeIcon icon={faReceipt} className="text-6xl text-red-600" />
                 </div>
-                <h1 className="text-2xl -mx-10 font-bold text-center">Votre commande a bien été prise en compte</h1>
+                <h1 className="text-2xl -mx-10 font-bold text-center text-black">Votre commande a bien été prise en compte</h1>
                 <div className="w-full">
-                    <p className="mb-6 italic">
+                    <p className="mb-6 italic text-black">
                         Le{' '}
                         {
                             new Date(payment?.createdAt!).toLocaleDateString("fr-FR", {
@@ -45,7 +45,7 @@ export default function receipt() {
                             })
                         }
                     </p>
-                    <div className="flex justify-between items-end">
+                    <div className="flex justify-between items-end text-black">
                         <p className="text-nowrap leading-normal">
                             {
                                 payment?.message.length! > 8 ?
@@ -62,10 +62,10 @@ export default function receipt() {
 
                 </div>
                 <div>
-                    <FontAwesomeIcon icon={faBarcode} className="text-6xl" />
+                    <FontAwesomeIcon icon={faBarcode} className="text-6xl text-green-700" />
                 </div>
                 <div className="w-full flex justify-center">
-                    <button className="text-amber-900 dark:text-amber-100 bg-amber-100 dark:bg-amber-900 hover:text-black hover:bg-amber-300 transition-all py-4 px-6 rounded shadow-md" onClick={() => {
+                    <button className="bg-red-700 text-white hover:bg-red-500 transition-all py-4 px-6 rounded shadow-md" onClick={() => {
                         router.push("/")
                     }}>
                         <FontAwesomeIcon icon={faHome} className="mr-4" />
@@ -73,7 +73,7 @@ export default function receipt() {
                     </button>
                 </div>
                 <div
-                    className="bg-amber-900 dark:bg-white absolute -z-10 -bottom-20 w-full max-w-[400px] h-1/4"
+                    className="bg-amber-100 absolute -z-10 -bottom-20 w-full max-w-[400px] h-1/4"
                     style={
                         {
                             clipPath: "polygon(0% 1%, 100% 0, 100% 63%, 88% 99%, 85% 65%, 81% 84%, 76% 65%, 74% 79%, 68% 66%, 61% 85%, 55% 65%, 50% 93%, 41% 66%, 36% 80%, 29% 64%, 26% 97%, 21% 66%, 14% 92%, 9% 64%, 4% 96%, 0% 63%)"
