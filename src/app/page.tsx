@@ -150,7 +150,7 @@ export default function Home() {
   return (
     <>
       <Toaster />
-      <div className="overflow-hidden">
+      <main className="overflow-hidden">
         <div id="hero" className="w-full flex items-center justify-between lg:flex-row flex-col overflow-hidden relative">
           <div className="bg-hero top-0 left-0 absolute w-full h-full -z-10 opacity-30">
           </div>
@@ -163,25 +163,24 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <h1>
-                <span className="lg:text-8xl text-6xl font-logo text-amber-100">Bienvenue sur</span>
+                <span className="lg:text-8xl text-6xl font-logo text-green-700">Bienvenue sur</span>
                 <br />
-                <span className="lg:text-8xl text-6xl font-logo text-amber-100">Folklore</span>
+                <span className="lg:text-8xl text-6xl font-logo text-green-700">Folklore</span>
               </h1>
-              <p className="text-2xl font-logo font-thin">
+              <p className="text-2xl font-logo font-thin text-black">
                 Dédicaces sur mesure pour transmettre vos messages en musique
               </p>
               <div className="w-full flex items-center mt-10">
-                <div className="lg:w-fit w-full bg-orange-200 flex lg:justify-start justify-between items-center p-4 gap-10">
-                  <h2 className="text-black text-3xl font-logo">
-                    Réservez maintenant
-                  </h2>
-
-                  <button className="flex justify-center w-fit" onClick={
+                <div className="lg:w-fit w-full bg-red-400 flex lg:justify-start justify-between items-center p-4 gap-10">
+                  <button className="flex justify-center w-fit gap-4" onClick={
                     () => {
                       const form = document.getElementById("form");
                       form?.scrollIntoView({ behavior: "smooth" });
                     }
                   }>
+                    <h2 className="text-black text-3xl font-logo">
+                      Réservez maintenant
+                    </h2>
                     <motion.div
                       initial={{ rotate: 0 }}
                       whileInView={{ rotate: -360 }}
@@ -210,14 +209,14 @@ export default function Home() {
               <img
                 src="assets/images/hamza-img.jpg"
                 alt="hero"
-                className="w-full h-4/6 object-cover top-20 right-20 lg:absolute shadow-2xl"
+                className="w-full h-4/6 object-cover top-20 right-20 lg:absolute shadow-2xl shadow-[#00000070]"
               />
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "100%" }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.5 }}
-                className="w-1/2 bg-gradient-to-b from-amber-300 to-bg-[#02008f] absolute top-0 right-0 -z-10"></motion.div>
+                className="w-1/2 bg-gradient-to-b from-red-600 to-bg-[#02008f] absolute top-0 right-0 -z-10"></motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -226,7 +225,7 @@ export default function Home() {
             width="600px" height="200px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
-              fill="#d9b99b" stroke="none">
+              fill="#ff0000" stroke="none">
               <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
 -19 53 56 c129 139 124 364 -11 456 -39 28 -53 27 -91 0z m90 -19 c14 -11 38
 -42 54 -67 24 -41 27 -57 27 -132 0 -72 -4 -93 -27 -140 -15 -30 -43 -71 -63
@@ -280,7 +279,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div>
-            <h2 className="text-center font-bold font-logo text-4xl text-amber-100 mb-6">Notre Service</h2>
+            <h2 className="text-center font-bold font-logo text-4xl text-green-700 mb-6">Notre Service</h2>
           </div>
           <div className="flex justify-center items-center lg:w-5/6 w-full mt-12 lg:flex-row flex-col">
             <motion.div
@@ -324,23 +323,23 @@ export default function Home() {
                 <Form>
                   <div className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-col justify-start items-start my-6 lg:w-2/3 w-full">
-                      <h3 className="font-logo lg:text-4xl text-2xl text-amber-100">Description</h3>
-                      <p className="font-logo lg:text-lg text-md text-amber-100">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
+                      <h3 className="font-logo lg:text-4xl text-2xl text-black">Description</h3>
+                      <p className="font-logo lg:text-lg text-md text-black">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
                       </p>
-                      <span className="text-6xl font-logo">
+                      <span className="text-6xl font-logo text-black">
                         50€
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="email" className="font-logo text-xl text-amber-100">Email* :</label>
-                      <span className="italic font-logo mb-2 text-sm text-white">
+                      <label htmlFor="email" className="font-logo text-xl text-green-700">Email* :</label>
+                      <span className="italic font-logo mb-2 text-sm text-red-500">
                         L'email où vous recevrez votre vidéo
                       </span>
                       <input
                         type="email"
                         name="email"
                         id="email"
-                        className="border border-red-700 p-2 text-black bg-slate-100"
+                        className="border border-red-500 p-2 text-black bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
@@ -349,14 +348,14 @@ export default function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="message" className="font-logo text-xl text-amber-100">Message* :</label>
-                      <span className="italic font-logo mb-2 text-sm text-white">
+                      <label htmlFor="message" className="font-logo text-xl text-green-700">Message* :</label>
+                      <span className="italic font-logo mb-2 text-sm text-red-500">
                         Un message avec des précision sur la vidéo que vous souhaitez
                       </span>
                       <textarea
                         name="message"
                         id="message"
-                        className="border border-red-700 p-2 text-black bg-slate-100"
+                        className="border border-red-500 p-2 text-black bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
@@ -364,7 +363,7 @@ export default function Home() {
                         {formik.touched.message && formik.errors.message ? formik.errors.message : ""}
                       </span>
                     </div>
-                    <button type="submit" className="bg-red-600 text-white rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-red-900 transition-all" disabled={loading}>
+                    <button type="submit" className={`${loading ? 'bg-red-300' : 'bg-red-600'} text-white min-w-44 rounded-md py-2 px-8 font-logo text-xl mt-4 hover:bg-red-900 transition-all flex justify-center items-center`} disabled={loading}>
                       {
                         loading ? <Hourglass
                           visible={true}
@@ -373,7 +372,7 @@ export default function Home() {
                           ariaLabel="hourglass-loading"
                           wrapperStyle={{}}
                           wrapperClass=""
-                          colors={['#fff0db', '#fef3c7']}
+                          colors={['#0d4e26', '#0d4e3e']}
                         /> : "Valider"
                       }
                     </button>
@@ -388,7 +387,7 @@ export default function Home() {
             width="600px" height="200px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
-              fill="#d9b99b" stroke="none">
+              fill="#ff0000" stroke="none">
               <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
 -19 53 56 c129 139 124 364 -11 456 -39 28 -53 27 -91 0z m90 -19 c14 -11 38
 -42 54 -67 24 -41 27 -57 27 -132 0 -72 -4 -93 -27 -140 -15 -30 -43 -71 -63
@@ -442,13 +441,13 @@ export default function Home() {
         </div>
         <div className="flex justify-center lg:w-4/5 w-full m-auto lg:flex-row flex-col lg:gap-0 gap-6 items-center">
           <div className="lg:w-1/2 w-full px-10">
-            <h2 className="font-bold font-logo text-4xl text-amber-100 mb-6">à propos de nous</h2>
+            <h2 className="font-bold font-logo text-4xl text-green-700 mb-6">à propos de nous</h2>
             <FadeInText
               text="Votre destination pour la musique traditionnelle marocaine authentique et vibrante. Notre groupe est né de la passion de préserver et de partager la richesse de la musique marocaine à travers des mélodies envoûtantes et des rythmes captivants.
 Nous offrons des dédicaces musicales uniques pour toutes vos occasions spéciales. Que ce soit pour un anniversaire, un mariage ou une célébration personnelle, nous nous engageons à créer des moments inoubliables avec nos performances sur mesure.
 Rejoignez-nous dans cette aventure musicale et laissez-nous apporter la magie des sons traditionnels marocains à vos événements. Pour chaque dédicace, une contrepartie est requise, permettant ainsi de soutenir notre mission de garder vivante la culture musicale marocaine.
 Merci de faire partie de notre communauté musicale!&nbsp;🎶"
-              className="lg:text-xl text-lg lg:leading-loose leading-snug" />
+              className="lg:text-xl text-lg lg:leading-loose leading-snug text-black" />
           </div>
           <AnimatePresence mode="sync">
             <motion.div
@@ -489,7 +488,7 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
               Created by potrace 1.15, written by Peter Selinger 2001-2017
             </metadata>
             <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
-              fill="#d9b99b" stroke="none">
+              fill="#ff0000" stroke="none">
               <path d="M6354 3698 c-93 -66 -129 -208 -84 -334 20 -59 67 -128 109 -159 l24
 -19 53 56 c129 139 124 364 -11 456 -39 28 -53 27 -91 0z m90 -19 c14 -11 38
 -42 54 -67 24 -41 27 -57 27 -132 0 -72 -4 -93 -27 -140 -15 -30 -43 -71 -63
@@ -541,9 +540,9 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
             </g>
           </svg>
         </div>
-        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-amber-100 py-20 lg:flex-row flex-col">
+        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-red-500 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
-            <div className="text-blue-950">
+            <div className="text-white">
               <h2 className="font-bold font-logo text-4xl dark:text-blackmb-6">Besoin d'aide ?</h2>
               <h3 className="font-logo text-2xl mb-6 ">Contact</h3>
               <div className="flex items-center gap-4 mb-2">
@@ -565,11 +564,11 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
             </div>
           </div>
           <div className="w-fit flex justify-center">
-            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-blue-950" />
+            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-green-600" />
           </div>
         </div>
-      </div>
-      <footer className="w-full flex justify-center items-center dark:bg-blue-700 dark:text-amber-100 bg-amber-100 text-blue-700 py-4">
+      </main>
+      <footer className="w-full flex justify-center items-center bg-green-600 text-white py-4">
         <p className="font-logo text-xl">© 2024 Folklore</p>
       </footer>
     </>

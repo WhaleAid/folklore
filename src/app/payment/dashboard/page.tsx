@@ -128,13 +128,13 @@ export default function Dashboard() {
                                 <div className="flex flex-col justify-center items-center gap-10">
                                     <div className="flex flex-col gap-2 items-center justify-center">
                                         <img src="/assets/images/logo.png" alt="lock" className="w-20 h-20 rounded-full" />
-                                        <h1 className="text-4xl font-logo text-center">Folklore</h1>
+                                        <h1 className="text-4xl font-logo text-center text-green-700">Folklore</h1>
                                     </div>
-                                    <div className="bg-amber-100 rounded px-8 py-2 hover:bg-amber-200 transition-all text-[#02008f] font-bold text-center">Se Connecter</div>
+                                    <div className="bg-red-600 rounded px-8 py-2 hover:bg-red-300 transition-all text-green-300 hover:text-green-700 font-bold text-center">Se Connecter</div>
                                 </div>
                             </ModalTrigger>
                             <ModalBody>
-                                <ModalContent className="bg-amber-100 flex">
+                                <ModalContent className="bg-green-200 flex shadow-lg">
                                     <div className="flex flex-col justify-center items-center h-full w-full gap-8 m-auto p-4">
                                         <h1 className="font-logo text-xl md:text-2xl text-black text-center">Rentrez le mot de passe</h1>
                                         <FormikProvider value={formik}>
@@ -150,7 +150,7 @@ export default function Dashboard() {
                                                         className="w-full shadow-lg rounded py-2 pl-10 pr-4 text-black"
                                                     />
                                                 </div>
-                                                <button className="bg-black shadow-md rounded-lg px-8 py-2 hover:bg-[#02008f] transition-all text-white font-bold w-full max-w-md" type="submit">Valider</button>
+                                                <button className="bg-red-500 shadow-md rounded-lg px-8 py-2 hover:bg-red-800 transition-all text-white font-bold w-full max-w-md" type="submit">Valider</button>
                                             </Form>
                                         </FormikProvider>
                                     </div>
@@ -166,7 +166,7 @@ export default function Dashboard() {
                                     <select
                                         value={filterStatus}
                                         onChange={(e) => setFilterStatus(e.target.value)}
-                                        className="bg-amber-100 rounded px-4 py-2 text-[#02008f] font-bold w-full md:w-auto"
+                                        className="bg-white shadow-md rounded px-4 py-2 text-[#0d4e26] font-bold w-full md:w-auto"
                                     >
                                         <option value="All">Tous</option>
                                         <option value="Paid">Payé</option>
@@ -175,7 +175,7 @@ export default function Dashboard() {
                                 </div>
                                 <div className="backdrop-blur-md rounded-xl max-h-[70vh] overflow-y-auto">
                                     <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700 overflow-hidden">
-                                        <thead className="bg-amber-100 text-[#02008f]">
+                                        <thead className="bg-red-500 text-white">
                                             <tr className="font-logo text-lg md:text-xl">
                                                 <th className="px-2 md:px-4 py-2">Email</th>
                                                 <th className="px-2 md:px-4 py-2">Message</th>
@@ -188,12 +188,12 @@ export default function Dashboard() {
                                             {
                                                 filteredPayments.length > 0 ? (
                                                     filteredPayments.map((payment) => (
-                                                        <tr key={payment._id} className="odd:bg-blue-900 even:bg-blue-800 font-receipt text-base md:text-lg">
-                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap text-amber-100">{payment.email}</td>
-                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap text-amber-100">{payment.message}</td>
-                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap text-amber-100">{payment.amount}</td>
+                                                        <tr key={payment._id} className="odd:bg-green-600 even:bg-green-700 font-receipt text-base md:text- text-center">
+                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap text-white">{payment.email}</td>
+                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap text-white max-w-96 text-wrap">{payment.message}</td>
+                                                            <td className="px-2 md:px-6 py-4 whitespace-nowrap text-white">{payment.amount}</td>
                                                             <td className="px-2 md:px-6 py-4 whitespace-nowrap">
-                                                                <span className={`px-2 py-1 rounded-md text-sm font-medium ${payment.status === "Paid" ? "bg-green-600" : "bg-red-700"}`}>
+                                                                <span className={`px-2 py-1 rounded-md text-sm font- text-white ${payment.status === "Paid" ? "bg-green-600" : "bg-red-700"}`}>
                                                                     {payment.status === "Paid" ? "Payé" : "Non payé"}
                                                                 </span>
                                                             </td>
