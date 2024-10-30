@@ -29,7 +29,7 @@ const NavBar: FC<navBarProps> = () => {
             }
         z-50`}>
             <Logo />
-            <span className="mb-6 font-logo cursor-default hover:scale-110 transition-all drop-shadow-xl">
+            <span className="mb-6 font-logo text-black px-2 cursor-default hover:scale-110 transition-all drop-shadow-xl">
                 Voyagez à travers les sons du Maroc...
             </span>
         </div>

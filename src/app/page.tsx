@@ -163,9 +163,9 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <h1>
-                <span className="lg:text-8xl text-6xl font-logo text-green-700">Bienvenue sur</span>
+                <span className="lg:text-8xl text-6xl font-logo text-black">Bienvenue sur</span>
                 <br />
-                <span className="lg:text-8xl text-6xl font-logo text-green-700">Folklore</span>
+                <span className="lg:text-8xl text-6xl font-logo text-black">Folklore</span>
               </h1>
               <p className="text-2xl font-logo font-thin text-black">
                 Dédicaces sur mesure pour transmettre vos messages en musique
@@ -211,13 +211,23 @@ export default function Home() {
                 alt="hero"
                 className="w-full h-4/6 object-cover top-20 right-20 lg:absolute shadow-2xl shadow-[#00000070]"
               />
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "100%" }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.5 }}
-                className="w-1/2 bg-gradient-to-b from-red-600 to-bg-[#02008f] absolute top-0 right-0 -z-10"></motion.div>
+              <div className="flex">
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "100%" }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5 }}
+                  className="w-1/4 bg-gradient-to-b from-red-600 to-[#00000000] absolute top-0 right-56 -z-10"></motion.div>
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "100%" }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5 }}
+                  className="w-1/4 bg-gradient-to-b from-green-600 to-[#00000000] absolute top-0 right-0 -z-10"></motion.div>
+              </div>
             </motion.div>
+
+
           </AnimatePresence>
         </div>
         <div id="form" className="lg:w-full w-2/3 m-auto flex justify-center items-center ">
@@ -326,12 +336,12 @@ export default function Home() {
                       <h3 className="font-logo lg:text-4xl text-2xl text-black">Description</h3>
                       <p className="font-logo lg:text-lg text-md text-black">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
                       </p>
-                      <span className="text-6xl font-logo text-black">
+                      <span className="text-6xl font-logo text-green-600">
                         50€
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="email" className="font-logo text-xl text-green-700">Email* :</label>
+                      <label htmlFor="email" className="font-logo text-xl text-black">Email* :</label>
                       <span className="italic font-logo mb-2 text-sm text-red-500">
                         L'email où vous recevrez votre vidéo
                       </span>
@@ -339,7 +349,7 @@ export default function Home() {
                         type="email"
                         name="email"
                         id="email"
-                        className="border border-red-500 p-2 text-black bg-slate-100"
+                        className="border border-black p-2 text-black bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.email}
                       />
@@ -348,14 +358,14 @@ export default function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
-                      <label htmlFor="message" className="font-logo text-xl text-green-700">Message* :</label>
+                      <label htmlFor="message" className="font-logo text-xl text-black">Message* :</label>
                       <span className="italic font-logo mb-2 text-sm text-red-500">
                         Un message avec des précision sur la vidéo que vous souhaitez
                       </span>
                       <textarea
                         name="message"
                         id="message"
-                        className="border border-red-500 p-2 text-black bg-slate-100"
+                        className="border border-black p-2 text-black bg-slate-100"
                         onChange={formik.handleChange}
                         value={formik.values.message}
                       />
@@ -540,9 +550,9 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
             </g>
           </svg>
         </div>
-        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-red-500 py-20 lg:flex-row flex-col">
+        <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-red-200 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
-            <div className="text-white">
+            <div className="text-black">
               <h2 className="font-bold font-logo text-4xl dark:text-blackmb-6">Besoin d'aide ?</h2>
               <h3 className="font-logo text-2xl mb-6 ">Contact</h3>
               <div className="flex items-center gap-4 mb-2">
@@ -564,11 +574,11 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
             </div>
           </div>
           <div className="w-fit flex justify-center">
-            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-green-600" />
+            <FontAwesomeIcon icon={faHeadset} className="lg:text-[25rem] text-6xl text-black" />
           </div>
         </div>
       </main>
-      <footer className="w-full flex justify-center items-center bg-green-600 text-white py-4">
+      <footer className="w-full flex justify-center items-center bg-green-700 text-white py-4">
         <p className="font-logo text-xl">© 2024 Folklore</p>
       </footer>
     </>
