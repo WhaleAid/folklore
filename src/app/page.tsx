@@ -230,7 +230,7 @@ export default function Home() {
 
           </AnimatePresence>
         </div>
-        <div id="form" className="lg:w-full w-2/3 m-auto flex justify-center items-center ">
+        <div className="lg:w-full w-2/3 m-auto flex justify-center items-center ">
           <svg className="" version="1.0" xmlns="http://www.w3.org/2000/svg"
             width="600px" height="200px" viewBox="0 0 1280.000000 640.000000"
             preserveAspectRatio="xMidYMid meet">
@@ -324,6 +324,7 @@ export default function Home() {
               </Carousel>
             </motion.div>
             <motion.div
+              id="form"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
@@ -360,7 +361,7 @@ export default function Home() {
                     <div className="flex flex-col lg:w-2/3 w-full">
                       <label htmlFor="message" className="font-logo text-xl text-amber-100">Message* :</label>
                       <span className="italic font-logo mb-2 text-sm text-white">
-                        Un message avec des précision sur la vidéo que vous souhaitez
+                        Un message avec des précisions sur la vidéo que vous souhaitez
                       </span>
                       <textarea
                         name="message"
@@ -451,13 +452,14 @@ export default function Home() {
         </div>
         <div className="flex justify-center lg:w-4/5 w-full m-auto lg:flex-row flex-col lg:gap-0 gap-6 items-center">
           <div className="lg:w-1/2 w-full px-10">
-            <h2 className="font-bold font-logo text-4xl text-amber-100 mb-6">à propos de nous</h2>
+            <h2 className="font-bold font-logo text-4xl text-amber-100 mb-6">Nos prestations pour vos événements spéciaux</h2>
             <FadeInText
-              text="Votre destination pour la musique traditionnelle marocaine authentique et vibrante. Notre groupe est né de la passion de préserver et de partager la richesse de la musique marocaine à travers des mélodies envoûtantes et des rythmes captivants.
-Nous offrons des dédicaces musicales uniques pour toutes vos occasions spéciales. Que ce soit pour un anniversaire, un mariage ou une célébration personnelle, nous nous engageons à créer des moments inoubliables avec nos performances sur mesure.
-Rejoignez-nous dans cette aventure musicale et laissez-nous apporter la magie des sons traditionnels marocains à vos événements. Pour chaque dédicace, une contrepartie est requise, permettant ainsi de soutenir notre mission de garder vivante la culture musicale marocaine.
-Merci de faire partie de notre communauté musicale!&nbsp;🎶"
-              className="lg:text-xl text-lg lg:leading-loose leading-snug text-white" />
+              text="Vous cherchez à ajouter une touche unique et mémorable à vos événements? Que ce soit pour des mariages, des anniversaires ou toute autre occasion spéciale, notre groupe est là pour vous offrir des prestations musicales qui sauront émerveiller vos invités."
+              className="text-xl lg:leading-loose leading-snug text-white" />
+            <br />
+            <FadeInText
+              text="Pour plus d'informations et pour réserver nos services, veuillez nous contacter directement. Nous serons ravis de faire de votre événement un moment inoubliable!&nbsp;🎶🎉"
+              className="text-xl lg:leading-loose leading-snug text-white" />
           </div>
           <AnimatePresence mode="sync">
             <motion.div
@@ -553,8 +555,7 @@ Merci de faire partie de notre communauté musicale!&nbsp;🎶"
         <div className="flex m-auto justify-evenly items-center gap-4 w-full bg-gray-950 py-20 lg:flex-row flex-col">
           <div className="w-fit flex px-10">
             <div className="text-amber-100">
-              <h2 className="font-bold font-logo text-6xl mb-6">Besoin d'aide ?</h2>
-              <h3 className="font-logo text-4xl mb-6 ">Contact</h3>
+              <h2 className="font-bold font-logo lg:text-6xl text-5xl mb-6">Contactez nous</h2>
               <div className="flex items-center gap-4 mb-2 text-white">
                 <FontAwesomeIcon icon={faEnvelope} className="text-xl text-red-500" />
                 <p className="text-xl">folklore.groupe@gmail.com</p>
