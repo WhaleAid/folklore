@@ -12,7 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { faEnvelope, faHeadset, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Hourglass } from "react-loader-spinner";
 import FadeInText from "@/components/ui/fadeinText";
@@ -80,10 +80,6 @@ export default function Home() {
     }
   ]
 
-  const searchParam = useSearchParams();
-  const testMode = searchParam.get("testmode");
-  console.log("🚀 ~ Home ~ testMode:", testMode)
-  
   useEffect(() => {
     galleryImages.forEach((image) => {
       const img = new window.Image();
@@ -109,7 +105,7 @@ export default function Home() {
     initialValues: {
       email: "",
       message: "",
-      amount: testMode ? .5 : 50
+      amount: 50
     },
     validationSchema: validationSchema,
     onSubmit: async (values: formProps) => {
