@@ -105,7 +105,7 @@ export default function Home() {
     initialValues: {
       email: "",
       message: "",
-      amount: 50
+      amount: 19.99
     },
     validationSchema: validationSchema,
     onSubmit: async (values: formProps) => {
@@ -338,7 +338,7 @@ export default function Home() {
                       <p className="font-logo lg:text-lg text-md text-white">Les commandes passées entre lundi et vendredi seront traitées le samedi. Celles passées le week-end seront traitées le samedi suivant.
                       </p>
                       <span className="text-6xl font-logo text-amber-100">
-                        50€
+                        19.99€
                       </span>
                     </div>
                     <div className="flex flex-col lg:w-2/3 w-full">
