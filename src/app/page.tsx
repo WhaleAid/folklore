@@ -105,7 +105,7 @@ export default function Home() {
     initialValues: {
       email: "",
       message: "",
-      amount: 19.99
+      amount: 1999
     },
     validationSchema: validationSchema,
     onSubmit: async (values: formProps) => {
